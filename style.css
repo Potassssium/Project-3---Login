@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+    --color-1: #ffffff;
+    --color-2: #f55a5a;
+    --color-3: #ebebeb;
+    --font-color: #434343;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(/images/BG.jpg);
+    backdrop-filter: blur(.15rem);
+    background-size: cover;
+    background-position: center;
+
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(243, 243, 243, 0.8);
+    backdrop-filter: blur(.5rem);
+}
+
+.logo {
+    align-items: left;
+    flex: auto;
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    margin-left: 3rem;
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -.45rem;
+    width: 100%;
+    height: .10rem;
+    background: var(--font-color);
+    border-radius: .4rem;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform: scaleX(1);
+
+}
+.navigation .btnLogin-popup {
+    width: 100px;
+    height: 30px;
+    border-radius: .4rem;
+    border: .15rem solid var(--font-color);
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    margin-left: 2rem;
+    transition: 0.5s ease;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: var(--font-color);
+    color: var(--color-1);
+
+}
+
+.wrapper    {
+    position: relative;
+    width: 25rem;
+    height: 440px;
+    background: rgba(243, 243, 243, 0.8);
+    border: .25rem solid rgba(255, 255, 255, 0.5);
+    border-radius: .8rem;
+    backdrop-filter: blur(5rem);
+    box-shadow:  0 0 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s , height .2s ease;
+}
+
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+.wrapper.active {
+    height: 520px;
+}
+.wrapper .box-login {
+    width: 100%;
+    padding: 2.5rem;
+}
+
+.wrapper .box-login {
+    transition: transform .5s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .box-login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .box-register {
+    position: absolute;
+    transition: .5 ease-out;
+    transform: translateX(400px);
+}
+
+.wrapper.wrapper.active .box-register {
+    transition: transform .5s ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.813rem;
+    height: 2.813rem;
+    background: var(--font-color);
+    font-size: 2em;
+    color: var(--color-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    z-index: 1;
+}
+
+.box-login  h2 {
+    font-size: 2em;
+    color: var(--font-color);
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.box-register h2 {
+    font-size: 2em;
+    color: var(--font-color);
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 3.125rem;
+    border-bottom: .125rem solid var(--font-color);
+    margin: 1.875rem 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: .25rem;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: var(--font-color);
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.5s ease;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--font-color);
+    font-weight: 700;
+    font-size: 1em  ;
+    padding: 0 35px 0 5px;
+
+}
+
+.input-box .icon {
+    position: absolute;
+    right: .2rem;
+    font-size: 1.2em;
+    color: var(--font-color);
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: var(--font-color);
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: var(--font-color);
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 2.813rem;
+    background: var(--font-color);
+    color: var(--color-1);
+    border: none;
+    outline: none;
+    border-radius: .35rem;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.login-register {
+    font-size: .9em;
+    color: var(--font-color);
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+.register-link {
+    font-weight: 500;
+}
+
+.login-link {
+    font-weight: 500;
+}
